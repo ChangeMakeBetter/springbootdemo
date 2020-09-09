@@ -5,5 +5,5 @@ package com.yang.springbootdemo.controller;
  */
 public interface ControllerUrlConsts {
 
-  String URL_HELLO = "/test/hello";
+  String URL_HELLO = "";
 }
