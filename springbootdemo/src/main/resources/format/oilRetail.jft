@@ -1,0 +1,52 @@
+${width 30}
+
+${define 1 storeNo}
+${define 2 flowNo}
+${define 3 posNo}
+${define 4 operatorFriendly}
+${define 5 orderNum}
+
+${define 6 l.itemName}
+${define 7 l.gunNo}
+${define 8 l.oilsCode}
+${define 9 fc(l.price)}
+${define 10 l.quantity}
+${define 11 fc(l.amount)}
+${define 12 crmCardCode}
+${define 13 orderTotalAmount}
+
+${if !isEmpty(gunNo)}
+  油枪: ${gunNo}
+${endif}
+  站点: ${storeName}
+  流水号:${5       }机号:${3  }
+  收银员:${4                 }
+
+${if eq(reprint, 'true')}
+--------------一键加油（重印）------------------
+${else}
+-----------------一键加油------------------
+${endif}
+  商品    枪号    单价    数量    金额
+  ${loop l:lines}
+  ${6,l        }${7,r }
+  ${8,l     }${9,r  }${10,r }${11, r}
+  ${endloop}
+-------------------------------------------
+  合计   ${count,r}件   ${13,r}元
+  会员优惠  ${memberFav,r}元
+  券优惠  ${oilCouponFavAmount,r}元
+  支付方式优惠       ${paymentFav,r}元
+  优惠合计          ${favorAmount,r}元
+
+-------------------------------------------
+  实付金额:           ${13       }元
+
+  ${loop p : payments}
+   ${p.name,l}  ${p.paymentAmount,r    }元
+  ${endloop}
+-------------------------------------------
+  会员号：      ${12                  }
+-------------------------------------------
+ 交易时间：${orderTime,r                }
+ 谢谢惠顾！
