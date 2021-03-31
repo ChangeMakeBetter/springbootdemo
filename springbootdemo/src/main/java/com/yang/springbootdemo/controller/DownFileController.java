@@ -29,10 +29,10 @@ public class DownFileController {
     InputStream inputStream = null;
     ServletOutputStream servletOutputStream = null;
     try {
-      Resource resource = new DefaultResourceLoader().getResource("classpath:download/TinyCmd-javademo.jar");
+      Resource resource = new DefaultResourceLoader().getResource("classpath:download/data2.zip");
 
       response.setContentType("application/force-download");
-      response.setHeader("Content-Disposition", "attachment;fileName=" + "TinyCmd-javademo.jar");
+      response.setHeader("Content-Disposition", "attachment;fileName=" + "data2.zip");
 
       inputStream = resource.getInputStream();
       servletOutputStream = response.getOutputStream();
