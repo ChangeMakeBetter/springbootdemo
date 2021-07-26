@@ -6,4 +6,6 @@ package com.yang.springbootdemo.controller;
 public interface ControllerUrlConsts {
 
   String URL_HELLO = "";
+
+  String URL_REDIS = "redis";
 }
